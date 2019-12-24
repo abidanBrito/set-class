@@ -38,8 +38,10 @@ You also need to configure the compiler toolchain.
 
 ### Array implementation
 `g++ -std=c++17 -Wall -Wextra -pedantic -o pruebasArray.exe ..\code\ConjuntoArray.cpp ..\code\mainPruebas.cpp`
+
 `g++ -std=c++17 -Wall -Wextra -pedantic -o pruebasArrayEspecificas.exe ..\code\ConjuntoArray.cpp ..\code\mainPruebasEspecificas.cpp`
 
 ### Vector implementation
 `g++ -std=c++17 -Wall -Wextra -pedantic -o pruebasVector.exe ..\code\ConjuntoVector.cpp ..\code\mainPruebas.cpp`
+
 `g++ -std=c++17 -Wall -Wextra -pedantic -o pruebasVectorEspecificas.exe ..\code\ConjuntoVector.cpp ..\code\mainPruebasEspecificas.cpp`
