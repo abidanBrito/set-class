@@ -23,8 +23,14 @@ signatures.
 
 ## USAGE
 Add `Conjunto.h` and `Conjunto.cpp`, or `ConjuntoVector.h` and `ConjuntoVector.cpp` 
-to your codebase of choice. Make sure to include the header file: `#include "Conjunto.h"` 
-or `#include "ConjuntoVector.h"` accordingly.
+to your codebase of choice. Make sure to include the right header file for your needs: 
+
+```cpp
+#include "Conjunto.h"
+``` 
+```cpp
+#include "ConjuntoVector.h"
+``` 
 
 ## COMPILATION
 I have written two source files to try out the class: `mainPruebas.cpp` and 
