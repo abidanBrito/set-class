@@ -22,7 +22,7 @@ signatures.
 *   [ ] Symmetric difference of two sets.
 
 ## USAGE
-Add `Conjunto.h` and `Conjunto.cpp`, or `ConjuntoVector.h`and `ConjuntoVector.cpp` 
+Add `Conjunto.h` and `Conjunto.cpp`, or `ConjuntoVector.h` and `ConjuntoVector.cpp` 
 to your codebase of choice. Make sure to include the header file: `#include "Conjunto.h"` 
 or `#include "ConjuntoVector.h"` accordingly.
 
