@@ -89,7 +89,7 @@ bool Conjunto::contiene(const double element) const {
 // ----------------------------------------
 // Conjunto, Conjunto -> unir() -> Conjunto
 // ----------------------------------------
-Conjunto Conjunto::unir(const Conjunto anotherSet) const {
+Conjunto Conjunto::unir(const Conjunto& anotherSet) const {
     // Set to be added is empty
     if(anotherSet.elementos.empty()) {
         return (*this);

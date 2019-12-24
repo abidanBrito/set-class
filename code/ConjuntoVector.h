@@ -33,7 +33,7 @@ public:
     unsigned int talla() const;                       // Returns size of the set
     void anyadir(const double element);               // Adds a given element
     bool contiene(const double element) const;        // Checks for a given element
-    Conjunto unir(const Conjunto anotherSet) const;   // Concatenates two sets
+    Conjunto unir(const Conjunto& anotherSet) const;   // Concatenates two sets
     void eliminar(const double element);              // Deletes a given element
     void vaciar();                                    // Empties the set
     void print() const;                               // Prints the set
