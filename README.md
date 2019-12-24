@@ -2,7 +2,7 @@
 
 A rather basic set class in C++17, originally written for a school assignment.
 There are two separate implementations. One uses a static array, while the 
-other relies on a vector container, for optimized memory usage and ease-of-use. 
+other relies on a vector container for optimized memory usage and ease-of-use. 
 However, they are completely interchangeable, as they share member function 
 signatures.  
 
