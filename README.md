@@ -19,6 +19,7 @@ signatures.
 *   [x] Print out all elements.
 
 ### To Do
+*   [ ] Complement of a set.
 *   [ ] Intersection of two sets.
 *   [ ] Difference of two sets.
 *   [ ] Symmetric difference of two sets.
