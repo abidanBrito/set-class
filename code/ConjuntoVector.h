@@ -25,7 +25,7 @@ private:
     std::vector<double> elementos;
 // MEMBER FUNCTIONS - DECLARATIONS
 private:
-    std::optional <unsigned int> donde(const double); // Returns index a given element
+    std::optional <unsigned int> donde(const double); // Returns index of a given element
     void swap(double *num1, double *num2);            // Swaps two given numbers (elements)
 
 public:
