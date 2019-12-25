@@ -20,6 +20,7 @@
 // -> Conjunto() -> Conjunto
 // ----------------------------------------
 Conjunto::Conjunto() :
+    elementos{},
     size(0)
 {}
 

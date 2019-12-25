@@ -28,19 +28,19 @@ private:
 
 // MEMBER FUNCTIONS - DECLARATIONS
 private:
-    std::optional <unsigned int> donde(const double); // Returns index of a given element
-    void swap(double *num1, double *num2);            // Swaps two given numbers (elements)
+    std::optional <unsigned int> donde(const double);  // Returns index of a given element
+    void swap(double *num1, double *num2);             // Swaps two given numbers (elements)
 
 public:
-    Conjunto();                                       // Default constructor
-    unsigned int talla() const;                       // Returns size of the set
-    void anyadir(const double element);               // Adds a given element
-    bool contiene(const double element) const;        // Checks for a given element
+    Conjunto();                                        // Default constructor
+    unsigned int talla() const;                        // Returns size of the set
+    void anyadir(const double element);                // Adds a given element
+    bool contiene(const double element) const;         // Checks for a given element
     Conjunto unir(const Conjunto& anotherSet) const;   // Concatenates two sets
-    void eliminar(const double element);              // Deletes a given element
-    void vaciar();                                    // Empties the set
-    void print() const;                               // Prints the set
-    void ordenar();                                      // Sorts using bubbleSort algorithm
+    void eliminar(const double element);               // Deletes a given element
+    void vaciar();                                     // Empties the set
+    void print() const;                                // Prints the set
+    void ordenar();                                    // Sorts using bubbleSort algorithm
 };
 
 #endif
