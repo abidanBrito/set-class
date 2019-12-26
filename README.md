@@ -43,7 +43,7 @@ comment / uncomment the following line at the top, to switch between implementat
 ``` cpp
 #define VECTOR
 ```
-You also need to configure the compiler toolchain.
+Feel free to build using the provided `makefile` or `code/build.bat`, if you're on Windows. If you wish to compile it on your own, make sure to configure the compiler toolchain for C++17.
 
 ### Array implementation
 `g++ -std=c++17 -Wall -Wextra -pedantic -o pruebasArray.exe ..\code\ConjuntoArray.cpp ..\code\mainPruebas.cpp`
