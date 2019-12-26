@@ -23,6 +23,7 @@
 class Conjunto {
 private:
     std::vector<double> elementos;
+    
 // MEMBER FUNCTIONS - DECLARATIONS
 private:
     std::optional <unsigned int> donde(const double); // Returns index of a given element
