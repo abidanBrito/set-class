@@ -148,13 +148,13 @@ void pruebaEliminar(unsigned int* testCounter) {
 }
 
 void pruebaVaciar(const unsigned int setSize, unsigned int* testCounter) {
-	Conjunto set;
+    Conjunto set;
 
     // Add several elements (if necessary)
     addSeveralElements(set, setSize);
 
     // Empty the set
-	set.vaciar();
+    set.vaciar();
     (*testCounter)++;
 
     // Get set size
@@ -170,7 +170,7 @@ void pruebaVaciar(const unsigned int setSize, unsigned int* testCounter) {
 }
 
 void pruebaUnir(unsigned int* testCounter) {
-	Conjunto set1, set2, superSet;
+    Conjunto set1, set2, superSet;
 
     // Generate a couple of common numbers
     // Different ranges to avoid the slim chance of generating the same number
@@ -189,7 +189,7 @@ void pruebaUnir(unsigned int* testCounter) {
     unsigned int superSetElements = 4;
 
     // Concatenate set1 and set2
-	superSet = set1.unir(set2);
+    superSet = set1.unir(set2);
     (*testCounter)++;
 
     // Get superSet size via talla()
