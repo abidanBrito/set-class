@@ -15,10 +15,10 @@ echo // COMPILER WARNINGS //
 echo -----------------------
 
 REM compile and link and generate executable file
-REM g++ -std=c++17 -Wall -Wextra -pedantic -o pruebasArray.exe ..\code\ConjuntoArray.cpp ..\code\mainPruebas.cpp
-REM g++ -std=c++17 -Wall -Wextra -pedantic -o pruebasEspecificasArray.exe ..\code\ConjuntoArray.cpp ..\code\mainPruebasEspecificas.cpp
-g++ -std=c++17 -Wall -Wextra -pedantic -o pruebasVector.exe ..\code\ConjuntoVector.cpp ..\code\mainPruebas.cpp
-g++ -std=c++17 -Wall -Wextra -pedantic -o pruebasEspecificasVector.exe ..\code\ConjuntoVector.cpp ..\code\mainPruebasEspecificas.cpp
+REM g++ -std=c++17 -Wall -Wextra -pedantic -o testsArray.exe ..\code\SetArray.cpp ..\code\mainTests.cpp
+REM g++ -std=c++17 -Wall -Wextra -pedantic -o testsArrayEspecific.exe ..\code\SetArray.cpp ..\code\mainTestsEspecific.cpp
+g++ -std=c++17 -Wall -Wextra -pedantic -o testsVector.exe ..\code\SetVector.cpp ..\code\mainTests.cpp
+g++ -std=c++17 -Wall -Wextra -pedantic -o testsVectorEspecific.exe ..\code\SetVector.cpp ..\code\mainTestsEspecific.cpp
 
 echo.
 echo.

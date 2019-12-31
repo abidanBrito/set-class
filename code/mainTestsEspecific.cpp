@@ -1,6 +1,6 @@
 /*  ------------------------------------------------------------------------
     AUTHOR:         Abidan Brito Clavijo
-    FILE:           mainPruebasEspecificas.cpp
+    FILE:           mainTestsEspecific.cpp
     DATE:           24/12/2019
     STATE:          DONE
     FUNCTIONALITY:  Manual testing for the set class implementations.
@@ -13,140 +13,140 @@
 // IMPORTANT(abi): Make sure to configure the toolchain to use c++17.
 //
 // ARRAY IMPLEMENTATION
-// g++ -std=c++17 -Wall -Wextra -pedantic -o pruebasEspecificasArray.exe ..\code\ConjuntoArray.cpp ..\code\mainPruebasEspecificas.cpp
+// g++ -std=c++17 -Wall -Wextra -pedantic -o testsArrayEspecific.exe ..\code\SetArray.cpp ..\code\mainTestsEspecific.cpp
 //
 // VECTOR IMPLEMENTATION
-// g++ -std=c++17 -Wall -Wextra -pedantic -o pruebasEspecificasVector.exe ..\code\ConjuntoVector.cpp ..\code\mainPruebasEspecificas.cpp
+// g++ -std=c++17 -Wall -Wextra -pedantic -o testsVectorEspecific.exe ..\code\SetVector.cpp ..\code\mainTestsEspecific.cpp
 // ------------------------------------------------------------------------------------------------------------------------------
 
 // NOTE(abi): Un/comment the line below to switch between implementations.
 #define VECTOR_SET
 
-#include <iostream>             // Required for std::cout and std::endl
+#include <iostream>       // Required for std::cout and std::endl
 
 #ifdef VECTOR_SET
-#   include "ConjuntoVector.h"  // Set class (vector)
+#   include "SetVector.h" // Set class (vector)
 #else
-#   include "ConjuntoArray.h"   // Set class (array)
+#   include "SetArray.h"  // Set class (array)
 #endif
 
 //// FUNCTION PROTOTYPES ////
 void printTitle();
 void printTestHeader(const char* str);
 void printIsWithin(const bool isWithin, const double number);
-void printSetData(const Conjunto& set);
-void printSetSize(const Conjunto& set);
-void testEliminar(Conjunto& set);
-void testAnyadir(Conjunto& set);
-void testContiene(const Conjunto& set);
-void testOrdenar(Conjunto& set);
-void testUnir(const Conjunto& set1, const Conjunto& set2, Conjunto& superSet);
-void testVaciar(Conjunto& set, unsigned int setNumber);
+void printSetData(const Set& set);
+void printSetSize(const Set& set);
+void testRemove(Set& set);
+void testAdd(Set& set);
+void testWithin(const Set& set);
+void testSort(Set& set);
+void testJoin(const Set& set1, const Set& set2, Set& superSet);
+void testEmpty(Set& set, unsigned int setNumber);
 
 //// PROGRAM EXECUTION ////
 int main() {
     printTitle();
 
     // Create a set
-    Conjunto set1;
+    Set set1;
     for(float i = 0.f; i <= 10.f; i += 0.5f) {
-        set1.anyadir(i);
+        set1.add(i);
     }
     printTestHeader("-> INITIAL SET");
     printSetData(set1);
 
     // Delete a couple elements
-    testEliminar(set1);
+    testRemove(set1);
 
     // Add a couple elements
-    testAnyadir(set1);
+    testAdd(set1);
 
     // Check for a couple numbers
-    testContiene(set1);
+    testWithin(set1);
 
     // Sort set
-    testOrdenar(set1);
+    testSort(set1);
 
     // Create another set
-    Conjunto set2;
+    Set set2;
     for(float i = 10.5f; i <= 15.f; i += 0.5f) {
-        set2.anyadir(i);
+        set2.add(i);
     }
     printTestHeader("-> ANOTHER SET");
     printSetData(set2);
 
     // Concatenate sets
-    Conjunto superSet;
-    testUnir(set1, set2, superSet);
+    Set superSet;
+    testJoin(set1, set2, superSet);
 
     // Clear sets
     printTestHeader("-> CLEAR / EMPTY ALL SETS");
-    testVaciar(set1, 1);
-    testVaciar(set2, 2);
-    testVaciar(superSet, 3);
+    testEmpty(set1, 1);
+    testEmpty(set2, 2);
+    testEmpty(superSet, 3);
 
     return 0;
 }
 
-void testEliminar(Conjunto& set) {
+void testRemove(Set& set) {
     printTestHeader("-> DELETE NUMBERS 2 AND 2.5 FROM THE SET");
 
     // Delete elements
-    set.eliminar(2.0);
-    set.eliminar(2.5);
+    set.remove(2.0);
+    set.remove(2.5);
 
     printSetData(set);
 }
 
-void testAnyadir(Conjunto& set) {
+void testAdd(Set& set) {
     printTestHeader("-> ADD NUMBERS 15.28 AND -5.3 TO THE SET");
 
     // Add elements
-    set.anyadir(15.28);
-    set.anyadir(-5.3);
+    set.add(15.28);
+    set.add(-5.3);
 
     printSetData(set);
 }
 
-void testContiene(const Conjunto& set) {
+void testWithin(const Set& set) {
     printTestHeader("-> CHECK FOR NUMBERS 15.28 AND -3.46");
 
     // Check for numbers as elements
     double number1 = 15.28;
     double number2 = -3.46;
-    bool withinSet1 = set.contiene(number1);
-    bool withinSet2 = set.contiene(number2);
+    bool withinSet1 = set.within(number1);
+    bool withinSet2 = set.within(number2);
 
     printIsWithin(withinSet1, number1);
     printIsWithin(withinSet2, number2);
     std::cout << std::endl;
 }
 
-void testOrdenar(Conjunto& set) {
+void testSort(Set& set) {
     printTestHeader("-> SORT THE GIVEN SET");
 
     // Sort set
-    set.ordenar();
+    set.sort();
 
     printSetData(set);
 }
 
-void testUnir(const Conjunto& set1, const Conjunto& set2, Conjunto& superSet) {
+void testJoin(const Set& set1, const Set& set2, Set& superSet) {
     printTestHeader("-> CONCATENATE SETS TOGETHER");
 
     // Concatenation
-    superSet = set1.unir(set2);
+    superSet = set1.join(set2);
 
     superSet.print();
     printSetSize(superSet);
 
 }
 
-void testVaciar(Conjunto& set, unsigned int setNumber) {
+void testEmpty(Set& set, unsigned int setNumber) {
     std::cout << "Set #" << setNumber << " - ";
 
     // Empty set
-    set.vaciar();
+    set.empty();
 
     printSetSize(set);
 }
@@ -167,14 +167,14 @@ void printIsWithin(const bool isWithin, const double number) {
 }
 
 
-void printSetData(const Conjunto& set) {
+void printSetData(const Set& set) {
     set.print();
     printSetSize(set);
     std::cout << std::endl;
 }
 
-void printSetSize(const Conjunto& set) {
-    std::cout << "Number of elements = " << set.talla() << std::endl;
+void printSetSize(const Set& set) {
+    std::cout << "Number of elements = " << set.size() << std::endl;
     std::cout << std::endl;
 }
 

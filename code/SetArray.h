@@ -1,6 +1,6 @@
 /*  ------------------------------------------------------------------------
     AUTHOR:         Abidan Brito Clavijo
-    FILE:           ConjuntoArray.h
+    FILE:           SetArray.h
     DATE:           23/12/2019
     STATE:          DONE
     FUNCTIONALITY:  Set class definition (array implementation).
@@ -11,36 +11,36 @@
 // TODO(abi): Add extra functionalities, such as intersection, difference,
 // symmetric difference, etc.
 
-#ifndef CONJUNTOARRAY_H
-#define CONJUNTOARRAY_H
+#ifndef SETARRAY_H
+#define SETARRAY_H
 
 #include <optional>     // Required for std::optional and std::nullopt
 
-#define MAX_SET_LENGHT 50
+#define MAX_SET_LENGTH 50
 
 // ---------------------------------------------------
-// Conjunto class definition
+// Set class definition
 // ---------------------------------------------------
-class Conjunto {
+class Set {
 private:
-    double elementos[MAX_SET_LENGHT];
+    double elements[MAX_SET_LENGTH];
     unsigned int size;
 
 // MEMBER FUNCTIONS - DECLARATIONS
 private:
-    std::optional <unsigned int> donde(const double);  // Returns index of a given element
-    void swap(double *num1, double *num2);             // Swaps two given numbers (elements)
+    std::optional <unsigned int> at(double); // Returns index of a given element
+    void swap(double *num1, double *num2);   // Swaps two given numbers (elements)
 
 public:
-    Conjunto();                                        // Default constructor
-    unsigned int talla() const;                        // Returns size of the set
-    void anyadir(const double element);                // Adds a given element
-    bool contiene(const double element) const;         // Checks for a given element
-    Conjunto unir(const Conjunto& anotherSet) const;   // Concatenates two sets
-    void eliminar(const double element);               // Deletes a given element
-    void vaciar();                                     // Empties the set
-    void print() const;                                // Prints the set
-    void ordenar();                                    // Sorts using bubbleSort algorithm
+    Set();                                   // Default constructor
+    unsigned int size() const;               // Returns size of the set
+    void add(double element);                // Adds a given element
+    bool within(double element) const;       // Checks for a given element
+    Set join(const Set& anotherSet) const;   // Concatenates two sets
+    void remove(double element);             // Deletes a given element
+    void empty();                            // Empties the set
+    void print() const;                      // Prints the set
+    void sort();                             // Sorts using bubbleSort algorithm
 };
 
 #endif

@@ -1,6 +1,6 @@
 /*  ------------------------------------------------------------------------
     AUTHOR:         Abidan Brito Clavijo
-    FILE:           ConjuntoVector.cpp
+    FILE:           SetVector.cpp
     DATE:           24/12/2019
     STATE:          DONE
     FUNCTIONALITY:  File containing all member functions definitions for
@@ -9,39 +9,39 @@
     NOTICE: (C) Copyright 2019 by Abidan Brito Clavijo. All rights reserved.
     ------------------------------------------------------------------------ */
 
-#include <iostream>            // Required for std::cout and std::endl
-#include <iomanip>             // Required for std::setprecision()
-#include "ConjuntoVector.h"    // Conjunto class (vector)
+#include <iostream>    // Required for std::cout and std::endl
+#include <iomanip>     // Required for std::setprecision()
+#include "SetVector.h" // Set class (vector)
 
 //// MEMBER FUNCTIONS - DEFINITIONS ////
 // ----------------------------------------
-// -> Conjunto() -> Conjunto
+// -> Set() -> Set
 // ----------------------------------------
-Conjunto::Conjunto()
+Set::Set()
 {}
 
 // ----------------------------------------
-// Conjunto -> talla() -> N
+// Set -> size() -> N
 // ----------------------------------------
-unsigned int Conjunto::talla() const {
-    return this->elementos.size();
+unsigned int Set::size() const {
+    return this->elements.size();
 }
 
 // ----------------------------------------
-// Conjunto, R -> anyadir() -> Conjunto
+// Set, R -> add() -> Set
 // ----------------------------------------
-void Conjunto::anyadir(const double newElement) {
-    if(!this->contiene(newElement)) {
-        this->elementos.emplace_back(newElement);
+void Set::add(const double newElement) {
+    if(!this->within(newElement)) {
+        this->elements.emplace_back(newElement);
     }
 }
 
 // ----------------------------------------
-// Conjunto, R -> donde() -> N
+// Set, R -> at() -> N
 // ----------------------------------------
-std::optional <unsigned int> Conjunto::donde(const double element) {
-    for(unsigned int i  = 0; i < this->elementos.size(); i++) {
-        if(this->elementos[i] == element) {
+std::optional <unsigned int> Set::at(const double element) {
+    for(unsigned int i  = 0; i < this->elements.size(); i++) {
+        if(this->elements[i] == element) {
             return i;
         }
     }
@@ -50,35 +50,30 @@ std::optional <unsigned int> Conjunto::donde(const double element) {
 }
 
 // ----------------------------------------
-// Conjunto, R -> eliminar() -> Conjunto
+// Set, R -> remove() -> Set
 // ----------------------------------------
-void Conjunto::eliminar(const double element) {
-    std::optional <unsigned int> index = this->donde(element);
+void Set::remove(const double element) {
+    std::optional <unsigned int> index = this->at(element);
 
     if(index) {
-        this->elementos.erase(this->elementos.begin() + *index);
+        this->elements.erase(this->elements.begin() + *index);
     }
 }
 
 // ----------------------------------------
-// Conjunto -> vaciar() -> Conjunto
+// Set -> empty() -> Set
 // ----------------------------------------
-void Conjunto::vaciar() {
-    this->elementos.clear();
+void Set::empty() {
+    this->elements.clear();
 }
 
 // ----------------------------------------
-// Conjunto, R -> contiene() -> T/F
+// Set, R -> within() -> T/F
 // ----------------------------------------
-bool Conjunto::contiene(const double element) const {
-    // Empty set
-    if(this->elementos.empty()) {
-        return false;
-    }
-
+bool Set::within(const double element) const {
     // Non-empty set
-    for(unsigned int i = 0; i < this->elementos.size(); i++) {
-        if(this->elementos[i] == element) {
+    for(unsigned int i = 0; i < this->elements.size(); i++) {
+        if(this->elements[i] == element) {
             return true;
         }
     }
@@ -87,40 +82,45 @@ bool Conjunto::contiene(const double element) const {
 }
 
 // ----------------------------------------
-// Conjunto, Conjunto -> unir() -> Conjunto
+// Set, Set -> join() -> Set
 // ----------------------------------------
-Conjunto Conjunto::unir(const Conjunto& anotherSet) const {
-    // Set to be added is empty
-    if(anotherSet.elementos.empty()) {
+Set Set::join(const Set& anotherSet) const {
+    // anotherSet is empty
+    if(anotherSet.elements.empty()) {
         return (*this);
     }
 
-    // Concatenate sets
-    Conjunto superSet;
-    for(unsigned int i = 0; i < this->elementos.size(); i++) {
-        superSet.anyadir(this->elementos[i]);
+    // (*this) is empty
+    if(this->elements.empty()) {
+        return anotherSet;
     }
-    for(unsigned int i = 0; i < anotherSet.elementos.size(); i++) {
-        superSet.anyadir(anotherSet.elementos[i]);
+
+    // Concatenate sets
+    Set superSet;
+    for(unsigned int i = 0; i < this->elements.size(); i++) {
+        superSet.add(this->elements[i]);
+    }
+    for(unsigned int i = 0; i < anotherSet.elements.size(); i++) {
+        superSet.add(anotherSet.elements[i]);
     }
 
     return superSet;
 }
 
 // ----------------------------------------
-// Conjunto -> ordenar() -> Conjunto
+// Set -> sort() -> Set
 // ----------------------------------------
-void Conjunto::ordenar() {
-    if(this->elementos.empty()) {
+void Set::sort() {
+    if(this->elements.empty()) {
         std::cout << "The set is empty, no need to sort!";
         return;
     }
 
-    for (unsigned int i = 0; i < (this->elementos.size() - 1); i++) {
+    for (unsigned int i = 0; i < (this->elements.size() - 1); i++) {
         // Last i elements already in place
-        for (unsigned int j = 0; j < (this->elementos.size() - i - 1); j++) {
-            if (this->elementos[j] > this->elementos[j+1])
-                swap(&(this->elementos[j]), &(this->elementos[j+1]));
+        for (unsigned int j = 0; j < (this->elements.size() - i - 1); j++) {
+            if (this->elements[j] > this->elements[j+1])
+                swap(&(this->elements[j]), &(this->elements[j+1]));
         }
     }
 }
@@ -128,23 +128,23 @@ void Conjunto::ordenar() {
 // ----------------------------------------
 // R, R -> swap() -> R, R
 // ----------------------------------------
-void Conjunto::swap(double *num1, double *num2) {
+void Set::swap(double *num1, double *num2) {
     double aux = *num1;
     *num1 = *num2;
     *num2 = aux;
 }
 
 // ----------------------------------------
-// Conjunto -> print() ->
+// Set -> print() ->
 // ----------------------------------------
-void Conjunto::print() const {
-    if(this->elementos.empty()) {
+void Set::print() const {
+    if(this->elements.empty()) {
         std::cout << "The set is empty!";
         return;
     }
 
-    for(unsigned int i = 0; i < (this->elementos.size() - 1); i++) {
-        std::cout << this->elementos[i] << ", ";
+    for(unsigned int i = 0; i < (this->elements.size() - 1); i++) {
+        std::cout << this->elements[i] << ", ";
     }
-    std::cout << std::setprecision(4) << this->elementos[this->elementos.size() - 1] << std::endl;
+    std::cout << std::setprecision(4) << this->elements[this->elements.size() - 1] << std::endl;
 }

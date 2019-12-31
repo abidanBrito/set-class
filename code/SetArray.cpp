@@ -1,6 +1,6 @@
 /*  ------------------------------------------------------------------------
     AUTHOR:         Abidan Brito Clavijo
-    FILE:           ConjuntoArray.cpp
+    FILE:           SetArray.cpp
     DATE:           24/12/2019
     STATE:          DONE
     FUNCTIONALITY:  File containing all member functions definitions for
@@ -9,44 +9,44 @@
     NOTICE: (C) Copyright 2019 by Abidan Brito Clavijo. All rights reserved.
     ------------------------------------------------------------------------ */
 
-#include <iostream>            // Required for std::cout and std::endl
-#include <iomanip>             // Required for std::setprecision()
-#include "ConjuntoArray.h"     // Conjunto class (array)
+#include <iostream>   // Required for std::cout and std::endl
+#include <iomanip>    // Required for std::setprecision()
+#include "SetArray.h" // Set class (array)
 
 #define EMPTY_SET 0
 
 //// MEMBER FUNCTIONS - DEFINITIONS ////
 // ----------------------------------------
-// -> Conjunto() -> Conjunto
+// -> Set() -> Set
 // ----------------------------------------
-Conjunto::Conjunto() :
-    elementos{},
+Set::Set() :
+    elements{},
     size(0)
 {}
 
 // ----------------------------------------
-// Conjunto -> talla() -> N
+// Set -> size() -> N
 // ----------------------------------------
-unsigned int Conjunto::talla() const {
+unsigned int Set::size() const {
     return this->size;
 }
 
 // ----------------------------------------
-// Conjunto, R -> anyadir() -> Conjunto
+// Set, R -> add() -> Set
 // ----------------------------------------
-void Conjunto::anyadir(const double newElement) {
-    if(!this->contiene(newElement)) {
-        this->elementos[this->size] = newElement;
+void Set::add(const double newElement) {
+    if(!this->within(newElement)) {
+        this->elements[this->size] = newElement;
         this->size++;
     }
 }
 
 // ----------------------------------------
-// Conjunto, R -> donde() -> N
+// Set, R -> at() -> N
 // ----------------------------------------
-std::optional <unsigned int> Conjunto::donde(const double element) {
+std::optional <unsigned int> Set::at(const double element) {
     for(unsigned int i  = 0; i < this->size; i++) {
-        if(this->elementos[i] == element) {
+        if(this->elements[i] == element) {
             return i;
         }
     }
@@ -55,39 +55,34 @@ std::optional <unsigned int> Conjunto::donde(const double element) {
 }
 
 // ----------------------------------------
-// Conjunto, R -> eliminar() -> Conjunto
+// Set, R -> remove() -> Set
 // ----------------------------------------
-void Conjunto::eliminar(const double element) {
-    std::optional <unsigned int> index = this->donde(element);
+void Set::remove(const double element) {
+    std::optional <unsigned int> index = this->at(element);
 
     if(index) {
         auto arrayIndex = *index;
         for(unsigned int i = arrayIndex; i < this->size; i++) {
-            this->elementos[i] = this->elementos[i + 1];
+            this->elements[i] = this->elements[i + 1];
         }
         this->size--;
     }
 }
 
 // ----------------------------------------
-// Conjunto -> vaciar() -> Conjunto
+// Set -> empty() -> Set
 // ----------------------------------------
-void Conjunto::vaciar() {
+void Set::empty() {
     this->size = 0;
 }
 
 // ----------------------------------------
-// Conjunto, R -> contiene() -> T/F
+// Set, R -> within() -> T/F
 // ----------------------------------------
-bool Conjunto::contiene(const double element) const {
-    // Empty set
-    if(this->size == EMPTY_SET) {
-        return false;
-    }
-
+bool Set::within(const double element) const {
     // Non-empty set
     for(unsigned int i = 0; i < this->size; i++) {
-        if(this->elementos[i] == element) {
+        if(this->elements[i] == element) {
             return true;
         }
     }
@@ -96,30 +91,35 @@ bool Conjunto::contiene(const double element) const {
 }
 
 // ----------------------------------------
-// Conjunto, Conjunto -> unir() -> Conjunto
+// Set, Set -> join() -> Set
 // ----------------------------------------
-Conjunto Conjunto::unir(const Conjunto& anotherSet) const {
+Set Set::join(const Set& anotherSet) const {
     // Set to be added is empty
     if(anotherSet.size == EMPTY_SET) {
         return (*this);
     }
 
+    // Set to be added is empty
+    if(this->elements.size == EMPTY_SET) {
+        return anotherSet;
+    }
+
     // Concatenate sets
-    Conjunto superSet;
+    Set superSet;
     for(unsigned int i = 0; i < this->size; i++) {
-        superSet.anyadir(this->elementos[i]);
+        superSet.add(this->elements[i]);
     }
     for(unsigned int i = 0; i < anotherSet.size; i++) {
-        superSet.anyadir(anotherSet.elementos[i]);
+        superSet.add(anotherSet.elements[i]);
     }
 
     return superSet;
 }
 
 // ----------------------------------------
-// Conjunto -> ordenar() -> Conjunto
+// Set -> sort() -> Set
 // ----------------------------------------
-void Conjunto::ordenar() {
+void Set::sort() {
     if(this->size == EMPTY_SET) {
         std::cout << "The set is empty, no need to sort!";
         return;
@@ -128,8 +128,8 @@ void Conjunto::ordenar() {
     for (unsigned int i = 0; i < (this->size - 1); i++) {
         // Last i elements already in place
         for (unsigned int j = 0; j < (this->size - i - 1); j++) {
-            if (this->elementos[j] > this->elementos[j+1])
-                swap(&(this->elementos[j]), &(this->elementos[j+1]));
+            if (this->elements[j] > this->elements[j+1])
+                swap(&(this->elements[j]), &(this->elements[j+1]));
         }
     }
 }
@@ -137,23 +137,23 @@ void Conjunto::ordenar() {
 // ----------------------------------------
 // R, R -> swap() -> R, R
 // ----------------------------------------
-void Conjunto::swap(double *num1, double *num2) {
+void Set::swap(double *num1, double *num2) {
     double aux = *num1;
     *num1 = *num2;
     *num2 = aux;
 }
 
 // ----------------------------------------
-// Conjunto -> print() ->
+// Set -> print() ->
 // ----------------------------------------
-void Conjunto::print() const {
+void Set::print() const {
     if(this->size == EMPTY_SET) {
         std::cout << "The set is empty!";
         return;
     }
 
     for(unsigned int i = 0; i < (this->size - 1); i++) {
-        std::cout << this->elementos[i] << ", ";
+        std::cout << this->elements[i] << ", ";
     }
-    std::cout << std::setprecision(4) << this->elementos[this->talla() - 1] << std::endl;
+    std::cout << std::setprecision(4) << this->elements[this->size() - 1] << std::endl;
 }
