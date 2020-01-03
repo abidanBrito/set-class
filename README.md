@@ -29,10 +29,10 @@ Add `Conjunto.h` and `Conjunto.cpp`, or `ConjuntoVector.h` and `ConjuntoVector.c
 to your codebase of choice. Make sure to include the right header file for your needs: 
 
 ```cpp
-#include "Conjunto.h"
+#include "SetArray.h"
 ``` 
 ```cpp
-#include "ConjuntoVector.h"
+#include "SetVector.h"
 ``` 
 
 ## COMPILATION
