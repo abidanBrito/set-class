@@ -25,7 +25,7 @@ signatures.
 *   [ ] Symmetric difference of two sets.
 
 ## USAGE
-Add `Conjunto.h` and `Conjunto.cpp`, or `ConjuntoVector.h` and `ConjuntoVector.cpp` 
+Add `SetArray.h` and `SetArray.cpp`, or `SetVector.h` and `SetVector.cpp` 
 to your codebase of choice. Make sure to include the right header file for your needs: 
 
 ```cpp
@@ -36,8 +36,8 @@ to your codebase of choice. Make sure to include the right header file for your 
 ``` 
 
 ## COMPILATION
-I have written two source files to try out the class: `mainPruebas.cpp` and 
-`mainPruebasEspecificas.cpp`. If you feel inclined to compile them, make sure to 
+I have written two source files to try out the class: `mainTests.cpp` and 
+`mainTestsEspecific.cpp`. If you feel inclined to compile them, make sure to 
 comment / uncomment the following line at the top, to switch between implementations.
 
 ``` cpp
