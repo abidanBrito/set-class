@@ -19,9 +19,11 @@ signatures.
 *   [x] Print out all elements.
 
 ### To Do
+*   [ ] Arithmetic mean.
+*   [ ] Check for a subset.
 *   [ ] Complement of a set.
-*   [ ] Intersection of two sets.
 *   [ ] Difference of two sets.
+*   [ ] Intersection of two sets.
 *   [ ] Symmetric difference of two sets.
 
 ## USAGE
