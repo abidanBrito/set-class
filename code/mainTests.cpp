@@ -24,7 +24,6 @@
 
 #include <iostream>       // Required for std::cout and std::endl
 #include <cstdlib>        // Required for rand()
-#include <cmath>          // Required for floor()
 
 #ifdef VECTOR_SET
 #   include "SetVector.h" // Set class (vector)
