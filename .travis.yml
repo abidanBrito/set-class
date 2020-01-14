@@ -6,7 +6,7 @@ os:
   
 # Run tests
 script:
-  - g++ -std=c++17 -Wall -Wextra -pedantic -o testsVector code/SetVector.cpp code/mainTests.cpp  
+  - g++ -std=c++17 -Wall -Wextra -pedantic -o testsVector ./code/SetVector.cpp ./code/mainTests.cpp  
   - ./testsVector.out
-  - g++ -std=c++17 -Wall -Wextra -pedantic -o testsVectorEspecific code/SetVector.cpp code/mainTestsEspecific.cpp
+  - g++ -std=c++17 -Wall -Wextra -pedantic -o testsVectorEspecific ./code/SetVector.cpp ./code/mainTestsEspecific.cpp
   - ./testsVectorEspecific.out
