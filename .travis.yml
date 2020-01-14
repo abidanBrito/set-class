@@ -6,6 +6,5 @@ os:
 
 compiler:
   - gcc
-  - clang
 
 script: make
