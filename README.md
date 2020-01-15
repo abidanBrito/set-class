@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/abidanBrito/Set-Class.svg?branch=master)](https://travis-ci.org/abidanBrito/Set-Class)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/52581286a76540a7b67cf4dcd7476673)](https://www.codacy.com/manual/abidanBrito/Set-Class?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abidanBrito/Set-Class&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.org/abidanBrito/Set-Class.svg?branch=master)](https://travis-ci.org/abidanBrito/Set-Class)
 
 A rather basic set class in C++17, originally written for a school assignment.
 There are two separate implementations. One uses a static array, while the 
