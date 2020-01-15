@@ -46,4 +46,4 @@ comment / uncomment the following line at the top, to switch between implementat
 ``` cpp
 #define VECTOR
 ```
-Feel free to build using the provided `makefile` or `code/build.bat`, if you're on Windows. If you wish to compile it on your own, make sure to configure the compiler toolchain for C++17.
+Feel free to use the provided `makefile` or `code/build.bat` (if you're on Windows). If you wish to compile it on your own, make sure to configure the compiler toolchain for C++17.
