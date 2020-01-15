@@ -49,11 +49,11 @@ comment / uncomment the following line at the top, to switch between implementat
 Feel free to build using the provided `makefile` or `code/build.bat`, if you're on Windows. If you wish to compile it on your own, make sure to configure the compiler toolchain for C++17.
 
 ### Array implementation
-`g++ -std=c++17 -Wall -Wextra -pedantic -o testsArray.exe ..\code\SetArray.cpp ..\code\mainTests.cpp`
+`g++ -std=c++17 -Wall -Wextra -pedantic -o testsArray ./code/SetArray.cpp ./code/mainTests.cpp`
 
-`g++ -std=c++17 -Wall -Wextra -pedantic -o testsArrayEspecific.exe ..\code\SetArray.cpp ..\code\mainTestsEspecific.cpp`
+`g++ -std=c++17 -Wall -Wextra -pedantic -o testsArrayEspecific ./code/SetArray.cpp ./code/mainTestsEspecific.cpp`
 
 ### Vector implementation
-`g++ -std=c++17 -Wall -Wextra -pedantic -o testsVector.exe ..\code\SetVector.cpp ..\code\mainTests.cpp`
+`g++ -std=c++17 -Wall -Wextra -pedantic -o testsVector ./code/SetVector.cpp ./code/mainTests.cpp`
 
-`g++ -std=c++17 -Wall -Wextra -pedantic -o testsVectorEspecific.exe ..\code\SetVector.cpp ..\code\mainTestsEspecific.cpp`
+`g++ -std=c++17 -Wall -Wextra -pedantic -o testsVectorEspecific ./code/SetVector.cpp ./code/mainTestsEspecific.cpp`
