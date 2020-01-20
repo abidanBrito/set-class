@@ -139,7 +139,7 @@ void testJoin(const Set& set1, const Set& set2, Set& superSet) {
 
     superSet.print();
     printSetSize(superSet);
-
+    std::cout << std::endl;
 }
 
 void testEmpty(Set& set, unsigned int setNumber) {
@@ -166,7 +166,6 @@ void printIsWithin(const bool isWithin, const double number) {
     }
 }
 
-
 void printSetData(const Set& set) {
     set.print();
     printSetSize(set);
@@ -175,7 +174,6 @@ void printSetData(const Set& set) {
 
 void printSetSize(const Set& set) {
     std::cout << "Number of elements = " << set.size() << std::endl;
-    std::cout << std::endl;
 }
 
 void printTitle() {
