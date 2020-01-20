@@ -27,12 +27,13 @@ $(TARGET1): $(OBJS1)
 $(TARGET2): $(OBJS2)
 	$(CXX) -o $(TARGET2) $(OBJS2)
 
-# DELETE BINARIES UPON COMMAND
+# DELETE BINARIES
 rmobj:
 	rm *.o
 
 clean:
 	rm -f $(TARGET1) $(TARGET2) *.o
-	rmdir build
+	rmdir $(BUILD_DIR)
 
+# CREATE BUILD DIRECTORY
 $(shell mkdir -p $(BUILD_DIR))
