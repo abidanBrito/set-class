@@ -6,7 +6,7 @@
     FUNCTIONALITY:  Automated testing for the set class implementations.
                     One uses a static array, the other a vector container.
     ------------------------------------------------------------------------
-    NOTICE: (C) Copyright 2019 by Abidan Brito Clavijo. All rights reserved.
+    NOTICE: Copyright (c) 2020 Abidán Brito Clavijo.
     ------------------------------------------------------------------------ */
 
 // ------------------------------------------------------------------------------------------------------------------------------
@@ -22,17 +22,17 @@
 // NOTE(abi): Un/comment the line below to switch between implementations.
 #define VECTOR_SET
 
-#include <iostream>       // Required for std::cout and std::endl
-#include <cstdlib>        // Required for rand()
+#include <iostream>     // Required for std::cout and std::endl
+#include <cstdlib>      // Required for rand()
 
 #ifdef VECTOR_SET
-#   include "SetVector.h" // Set class (vector)
+# include "SetVector.h" // Set class (vector)
 #else
-#   include "SetArray.h"  // Set class (array)
+# include "SetArray.h"  // Set class (array)
 #endif
 
 //// FUNCTION PROTOTYPES ////
-double randomFloat(double a, double b);
+double randomNumber(double a, double b);
 void addSeveralElements(Set& set, const unsigned int setSize);
 void testSize(const unsigned int setSize, unsigned int* testCounter);
 void testWithin(bool isEmpty, unsigned int* testCounter);
@@ -40,6 +40,8 @@ void testAdd(unsigned int* testCounter);
 void testRemove(unsigned int* testCounter);
 void testEmpty(const unsigned int setSize, unsigned int* testCounter);
 void testJoin(unsigned int* testCounter);
+void testIsSubset(unsigned int* testCounter);
+void testMeanValue(unsigned int* testCounter);
 void runTests();
 
 //// PROGRAM EXECUTION ////
@@ -82,7 +84,7 @@ void testWithin(bool isEmpty, unsigned int* testCounter) {
     Set set;
 
     // Generate a new random element
-    const double n = randomFloat(-50.0, 50.0);
+    const double n = randomNumber(-50.0, 50.0);
 
     // Add element to the set if isEmpty is true
     if(!isEmpty) {
@@ -106,7 +108,7 @@ void testAdd(unsigned int* testCounter) {
     Set set;
 
     // Add a new random element
-    const double n = randomFloat(-50.0, 50.0);
+    const double n = randomNumber(-50.0, 50.0);
     set.add(n);
     (*testCounter)++;
 
@@ -126,7 +128,7 @@ void testRemove(unsigned int* testCounter) {
     Set set;
 
     // Add a new random element
-    const double n = randomFloat(-50.0, 50.0);
+    const double n = randomNumber(-50.0, 50.0);
     set.add(n);
 
     // Delete the element
@@ -173,8 +175,8 @@ void testJoin(unsigned int* testCounter) {
 
     // Generate a couple of common numbers
     // Different ranges to avoid the slim chance of generating the same number
-    const double commonNum1 = randomFloat(-15.0, 0.0); // [-15, 0)
-    const double commonNum2 = randomFloat(0.0, 15.0);  // [0, 15)
+    const double commonNum1 = randomNumber(-15.0, 0.0); // [-15, 0)
+    const double commonNum2 = randomNumber(0.0, 15.0);  // [0, 15)
 
     // Fill in sets
     set1.add(commonNum1);
@@ -203,7 +205,62 @@ void testJoin(unsigned int* testCounter) {
     std::cout << "failed!\n";
 }
 
-double randomFloat(double a, double b) {
+void testMeanValue(unsigned int* testCounter) {
+    Set set;
+
+    // Generate 3 random numbers
+    double num1, num2, num3;
+    num1 = randomNumber(-25.0, 25.0);
+    num2 = randomNumber(-25.0, 25.0);
+    num3 = randomNumber(-25.0, 25.0);
+
+    // Add them to the set
+    set.add(num1);
+    set.add(num2);
+    set.add(num3);
+
+    double meanValue = (num1 + num2 + num3) / 3.0;
+    std::optional <double> average = set.meanValue();
+    (*testCounter)++;
+
+    // Print out test status
+    std::cout << "TEST " << *testCounter << ": ";
+    if (meanValue == average) {
+        std::cout << "passed!\n";
+        return;
+	}
+    std::cout << "failed!\n";
+}
+
+void testIsSubset(unsigned int* testCounter) {
+    Set set1, set2;
+
+    // Generate 3 random numbers
+    double num1, num2, num3;
+    num1 = randomNumber(-25.0, 25.0);
+    num2 = randomNumber(-25.0, 25.0);
+    num3 = randomNumber(-25.0, 25.0);
+
+    // Make sure set2 is a subset of set1
+    set1.add(num1);
+    set1.add(num2);
+    set1.add(num3);
+    set2.add(num1);
+    set2.add(num2);
+
+    bool contained = set1.isSubset(set2);
+    (*testCounter)++;
+
+    // Print out test status
+    std::cout << "TEST " << *testCounter << ": ";
+    if (contained) {
+        std::cout << "passed!\n";
+        return;
+	}
+    std::cout << "failed!\n";
+}
+
+double randomNumber(double a, double b) {
     return ((double)rand() / RAND_MAX) * (b - a) + a;
 }
 
@@ -211,7 +268,7 @@ void addSeveralElements(Set& set, const unsigned int setSize) {
     // Add elements (if necessary)
     if(setSize > 0) {
         for(unsigned int i = 0; i < setSize; i++) {
-            double n = randomFloat(-50.0, 50.0);
+            double n = randomNumber(-50.0, 50.0);
             set.add(n);
         }
     }
@@ -219,21 +276,6 @@ void addSeveralElements(Set& set, const unsigned int setSize) {
 
 void runTests() {
     unsigned int testCounter = 0;
-
-    // size()
-    std::cout << "-> size()" << std::endl;
-    testSize(0, &testCounter);
-    testSize(7, &testCounter);
-    testSize(15, &testCounter);
-    testCounter = 0;
-    std::cout << std::endl;
-
-    // within()
-    std::cout << "-> within()" << std::endl;
-    testWithin(true, &testCounter);
-    testWithin(false, &testCounter);
-    testCounter = 0;
-    std::cout << std::endl;
 
     // add()
     std::cout << "-> add()" << std::endl;
@@ -259,10 +301,41 @@ void runTests() {
     testCounter = 0;
     std::cout << std::endl;
 
+    // size()
+    std::cout << "-> size()" << std::endl;
+    testSize(0, &testCounter);
+    testSize(7, &testCounter);
+    testSize(15, &testCounter);
+    testCounter = 0;
+    std::cout << std::endl;
+
+    // within()
+    std::cout << "-> within()" << std::endl;
+    testWithin(true, &testCounter);
+    testWithin(false, &testCounter);
+    testCounter = 0;
+    std::cout << std::endl;
+
+    // isSubset()
+    std::cout << "-> isSubset()" << std::endl;
+    testIsSubset(&testCounter);
+    testIsSubset(&testCounter);
+    testIsSubset(&testCounter);
+    testCounter = 0;
+    std::cout << std::endl;
+
     // join()
     std::cout << "-> join()" << std::endl;
     testJoin(&testCounter);
     testJoin(&testCounter);
     testJoin(&testCounter);
+    testCounter = 0;
+    std::cout << std::endl;
+
+    // meanValue()
+    std::cout << "-> meanValue()" << std::endl;
+    testMeanValue(&testCounter);
+    testMeanValue(&testCounter);
+    testMeanValue(&testCounter);
     std::cout << std::endl;
 }
