@@ -9,22 +9,23 @@ signatures.
 
 ## FEATURES
 ### Implemented
-*   [x] Set creation.
+*   [x] Set creation / deletion.
 *   [x] Add elements.
 *   [x] Delete elements.
+*   [x] Empty a set.
 *   [x] Get the size.
 *   [x] Check for an element.
-*   [x] Sort elements.
-*   [x] Union of two sets.
-*   [x] Empty a set.
-*   [x] Print out all elements.
-*   [x] Arithmetic mean.
 *   [x] Check for a subset.
+*   [x] Union of two sets.
+*   [x] Arithmetic mean of a set.
+*   [x] Sort elements of a set.
+*   [x] Print out a set.
 
 ### To Do
-*   [ ] Complement of a set.
-*   [ ] Difference of two sets.
+*   [ ] Complement of a set, given a universal set.
+*   [ ] Check for a proper subset.
 *   [ ] Intersection of two sets.
+*   [ ] Difference of two sets.
 *   [ ] Symmetric difference of two sets.
 
 ## USAGE
