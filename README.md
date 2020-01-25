@@ -18,10 +18,10 @@ signatures.
 *   [x] Union of two sets.
 *   [x] Empty a set.
 *   [x] Print out all elements.
+*   [x] Arithmetic mean.
+*   [x] Check for a subset.
 
 ### To Do
-*   [ ] Arithmetic mean.
-*   [ ] Check for a subset.
 *   [ ] Complement of a set.
 *   [ ] Difference of two sets.
 *   [ ] Intersection of two sets.
