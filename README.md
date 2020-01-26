@@ -17,16 +17,17 @@ signatures.
 *   [x] Check for an element.
 *   [x] Check for a subset.
 *   [x] Check for a proper subset.
-*   [ ] Complement of a set, given a universal set.
+*   [x] Complement of a set, given a universal set.
 *   [x] Union of two sets.
 *   [x] Arithmetic mean of a set.
 *   [x] Sort elements of a set.
 *   [x] Print out a set.
 
 ### To Do
-*   [ ] Intersection of two sets.
 *   [ ] Difference of two sets.
+*   [ ] Reverse difference of two sets.
 *   [ ] Symmetric difference of two sets.
+*   [ ] Intersection of two sets.
 
 ## USAGE
 Add `SetArray.h` and `SetArray.cpp`, or `SetVector.h` and `SetVector.cpp` 
