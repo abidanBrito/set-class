@@ -26,21 +26,21 @@ private:
 
 // MEMBER FUNCTIONS - DECLARATIONS
 private:
-    std::optional <unsigned int> at(double); // Returns index of a given element.
-    void swap(double *num1, double *num2);   // Swaps two given numbers (elements).
+    std::optional <unsigned int> at(double);             // Returns index of a given element.
 
 public:
-    Set();                                          // Default constructor.
-    unsigned int size() const;                      // Returns size of the set.
-    void add(double element);                       // Adds a given element.
-    Set join(const Set& anotherSet) const;          // Concatenates two sets.
-    void remove(double element);                    // Deletes a given element.
-    void empty();                                   // Empties the set.
-    bool within(double element) const;              // Checks for a given element.
-    bool isSubset(const Set& anotherSet) const;     // Checks for a given subset.
-    std::optional <double> meanValue() const;       // Returns the average.
-    void print() const;                             // Prints the set.
-    void sort();                                    // Sorts using bubbleSort algorithm.
+    unsigned int size() const;                           // Returns size of the set.
+    void add(double element);                            // Adds a given element.
+    void remove(double element);                         // Deletes a given element.
+    void empty();                                        // Empties the set.
+    bool within(double element) const;                   // Checks for a given element.
+    bool isSubset(Set const & referenceSet) const;       // Checks for a subset.
+    bool isProperSubset(Set const & referenceSet) const; // Checks for a proper subset.
+    Set join(Set const & anotherSet) const;              // Concatenates two sets.
+    Set complement(Set const & universalSet) const;      // Complement, given a universal set.
+    std::optional <double> meanValue() const;            // Returns the average.
+    void print() const;                                  // Prints the set.
+    void sort();                                         // Sorts using bubbleSort algorithm.
 };
 
 #endif
