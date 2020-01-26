@@ -28,6 +28,8 @@ signatures.
 *   [ ] Reverse difference of two sets.
 *   [ ] Symmetric difference of two sets.
 *   [ ] Intersection of two sets.
+*   [ ] Cartesian product of swo sets.
+*   [ ] Mutable universal set.
 
 ## USAGE
 Add `SetArray.h` and `SetArray.cpp`, or `SetVector.h` and `SetVector.cpp` 
