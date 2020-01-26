@@ -188,7 +188,7 @@ bool Set::isProperSubset(Set const & referenceSet) const {
 }
 
 // ----------------------------------------
-// Set, Set -> complement() -> T/F
+// Set, Set -> complement() -> Set
 // ----------------------------------------
 Set Set::complement(Set const & universalSet) const {
     // NOTE(abi): Complement of an empty set is the universal set.
