@@ -16,14 +16,14 @@ signatures.
 *   [x] Get the size.
 *   [x] Check for an element.
 *   [x] Check for a subset.
+*   [x] Check for a proper subset.
+*   [ ] Complement of a set, given a universal set.
 *   [x] Union of two sets.
 *   [x] Arithmetic mean of a set.
 *   [x] Sort elements of a set.
 *   [x] Print out a set.
 
 ### To Do
-*   [ ] Complement of a set, given a universal set.
-*   [ ] Check for a proper subset.
 *   [ ] Intersection of two sets.
 *   [ ] Difference of two sets.
 *   [ ] Symmetric difference of two sets.
