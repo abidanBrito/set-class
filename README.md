@@ -51,3 +51,6 @@ comment / uncomment the following line at the top, to switch between implementat
 #define VECTOR
 ```
 Feel free to use the provided `makefile` or `code/build.bat` (if you're on Windows). If you wish to compile it on your own, make sure to configure the compiler toolchain for C++17.
+
+## LICENSE
+This repository is released under the MIT license. See [LICENSE](LICENSE) for more information.
