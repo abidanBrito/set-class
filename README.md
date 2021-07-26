@@ -1,6 +1,7 @@
 # set-class
 
 ![WIP_Badge](https://img.shields.io/badge/version-0.1-blue.svg)
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/abidanBrito/Set-Class.svg?branch=master)](https://travis-ci.org/abidanBrito/Set-Class)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/99dac280a16543a697f233e27a3078d6)](https://www.codacy.com/gh/abidanBrito/set-class/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abidanBrito/set-class&amp;utm_campaign=Badge_Grade)
 
